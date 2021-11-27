@@ -19,7 +19,7 @@ const planos = [
     },
 ]
 
-function autualizarValores(aluguel,qtd=1){
+function atualizarValores(aluguel,qtd=1){
     let cards = document.querySelectorAll(".plano");
     planos.forEach(plano => {
         let valor = parseFloat((qtd * plano[aluguel]).toFixed(2));
@@ -33,7 +33,7 @@ function autualizarValores(aluguel,qtd=1){
 
 function Main(){
     let aluguelPor = "semana";
-    autualizarValores(aluguelPor);
+    atualizarValores(aluguelPor);
     let btns = document.querySelectorAll(".option-button");
     let qtd = document.querySelector("#quantidade");
     btns.forEach(btn => {
@@ -41,15 +41,15 @@ function Main(){
             qtd.value = 1;
             if(btn.textContent == "Por semana"){
                 aluguelPor = "semana";
-                autualizarValores("semana");
+                atualizarValores("semana");
             }else{
                 aluguelPor = "mes";
-                autualizarValores("mes");
+                atualizarValores("mes");
             }
         })
     })
     qtd.addEventListener("change",()=>{
-        autualizarValores(aluguelPor,qtd.value);
+        atualizarValores(aluguelPor,qtd.value);
     })
 }
 
